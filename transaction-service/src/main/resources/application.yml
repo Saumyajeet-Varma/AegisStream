@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: transaction-service
+
+  # Connect to our Docker Postgres
+  datasource:
+    url: jdbc:postgresql://localhost:5432/aegis_db
+    username: admin
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  # Auto-generate DB tables based on our Java classes
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  # Connect to our Docker Kafka
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
