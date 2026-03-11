@@ -75,4 +75,12 @@ aegis-stream/                  (Root Directory)
     └── grafana-dashboards/
 ```
 
+## How to run the full pipeline
+
+- Open three separate terminal windows.
+- Start TransactionApplication in one.
+- Start FraudApplication in the second.
+- Start NotificationApplication in the third.
+- Send your cURL/Postman POST request to localhost:8081 with an amount of 15000.00.
+
 > TODO: Create notion plan page, and start the project.
